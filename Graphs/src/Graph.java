@@ -7,7 +7,7 @@ public class Graph {
 
     public Graph(int vertexCount) {
         if (vertexCount < 0) {
-            throw new IllegalArgumentException("РљРѕР»-РІРѕ РІРµСЂС€РёРЅ РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РѕС‚СЂРёС†Р°С‚РµР»СЊРЅС‹Рј");
+            throw new IllegalArgumentException("Кол-во вершин не может быть отрицательным");
         }
         this.vertexCount = vertexCount;
         adjLists = new LinkedList[vertexCount];
@@ -26,7 +26,7 @@ public class Graph {
 
     public void addEdge(int v1, int v2) {
         if (v1 < 0 || v2 < 0) {
-            throw new IllegalArgumentException("РќРѕРјРµ РІРµСЂС€РёРЅС‹ РЅРµ РѕР¶РµС‚ Р±С‹С‚СЊ РѕС‚СЂРёС†Р°С‚РµР»СЊРЅС‹Рј");
+            throw new IllegalArgumentException("Номер вершины не может быть отрицательным");
         }
         adjLists[v1].add(v2);
         adjLists[v2].add(v1);
