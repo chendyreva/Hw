@@ -7,7 +7,7 @@ public class BST<Key extends Comparable<Key>, Value> {
         Node left;
         Node right;
         int size; //кол-во узлов в дереве, корнем которого является данный узел
-        int height;//глубина  дерева
+        private int height = 0 ;//глубина  дерева
         public Node(Key key, Value value, int size,int height) {
             this.key = key;
             this.value = value;
@@ -16,7 +16,7 @@ public class BST<Key extends Comparable<Key>, Value> {
         }
     }
 
-    private Node root = null;
+    private Node root;
 
     public boolean isEmpty() { return root == null; }
     public int size() {
@@ -43,6 +43,18 @@ public class BST<Key extends Comparable<Key>, Value> {
         else {
             return node.height;
         }
+    }
+    public boolean isBalanced() {
+        return isBalanced(root);
+    }
+
+    private boolean isBalanced(Node node) {
+        if (node == null) {
+            return true;
+        }
+        return Math.abs(height(node.left) - height(node.right)) < 2 &&
+                isBalanced(node.left) &&
+                isBalanced(node.right);
     }
 
     public Value get(Key key) { //a[key]

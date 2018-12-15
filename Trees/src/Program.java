@@ -14,6 +14,6 @@ public class Program {
         assArr.put('R', 212);
         assArr.put('Q', 700);
         assArr.put('Z', 000);
-        System.out.println();
+        System.out.println(assArr.isBalanced());
     }
 }
